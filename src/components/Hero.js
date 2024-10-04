@@ -19,7 +19,7 @@ const Hero = () => {
         flexDirection: 'column', 
         justifyContent: 'center', 
         alignItems: 'center', 
-        marginTop: '35vh', 
+        marginTop: '30vh', 
         marginBottom: '50vh', 
         textAlign: 'center',
         color: colors.textPrimary 

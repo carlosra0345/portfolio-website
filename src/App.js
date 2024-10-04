@@ -14,6 +14,7 @@ import Dropdown from './components/Dropdown';
 import Card from './components/Card';
 import AboutMe from './components/AboutMe'
 import Hero from './components/Hero';
+import SocialIcons from './components/SocialIcons'
 
 const pages = [
   {
@@ -57,9 +58,11 @@ function App() {
         jobTitle="Software Engineer Intern"
         startDate="June 2024"
         endDate="August 2024"
-        content="Spearhead full-stack development initiatives within Mastercard's dynamic platform engineering team. 
-                  Leverage a robust tech stack including Golang, Node.js, React.js, Kubernetes, and AWS to architect
-                  and implement our internal developer platform and deployment systems."
+        content="During my internship at Mastercard, I contributed to enhancing security compliance and improving
+        the developer experience within the Finicity Platform Engineering team. My work involved the integration of automated
+        security scans into CI/CD pipelines for over 300 internal projects. I collaborated on various development initiatives using
+        Node, PostgreSQL, and React. Additionally, my intern team and I were able to secure first place in the Mastercard Global Innovation
+        Challenge, a company-wide hackathon that brought together over 500 interns from 41 offices worldwide to develop impactful solutions."
       />
       <Dropdown
         imageSource={tamu}
@@ -68,9 +71,9 @@ function App() {
         jobTitle="Student Research Technician"
         startDate="January 2023"
         endDate="Present"
-        content="Currently working under the guidance of Dr. Prabir Daripa for my research regarding the modeling and simulation of methods 
-        for enhanced oil recovery. Here I utilized and developed MATLAB programs to perform computation heavy simulations while also implementing a user-interface 
-        to provide a more intuitive user experience. I also maintained documentation and performed isolated unit tests before integration into codebase."
+        content="As a student researcher under Dr. Daripa, I am focused on the modeling and simulating surfactant-polymer flooding in 
+        enhanced oil recovery. My research involves performing computationally intesive simulations, which provide valuable insights into the effectiveness 
+        of surfactant-polymer interactions in the oil recovery process."
       />
 
       <SectionHeader sectionNumber={3} title={'Featured Projects'} identifier='Projects' />
@@ -78,16 +81,20 @@ function App() {
           tileImage={securochat}
           tileAlt="Securochat project logo"
           tileTitle="Securochat"
-          tileContent="An end-to-end encrypted real-time mobile chat application ensures secure communication between users, protecting their messages from unauthorized access. With advanced encryption protocols, this app provides a safe platform for sharing sensitive information, making it ideal for private conversations."
+          tileContent="Securochat is an end-to-end encrypted chat application that ensures secure communication using RSA encryption.
+          As a full-stack developer, I led an 8-person team through the system design process, specializing in backend security with REST APIs and JSON
+          Web Tokens for secure access to server resources."
           link='https://github.com/aggie-coding-club/SecuroChat'
         />
         <Card 
           tileImage={tamuSquare}
           tileAlt="TAMU logo"
-          tileTitle="Model of SP Flooding"
+          tileTitle="Modeling of SP Flooding"
           tileContent="Surfactant-Polymer (SP) flooding is an enhanced oil recovery (EOR) technique that injects an aqueous phase with polymers and surfactants into oil reservoirs to optimize extraction. This project focuses on modeling the complex simulations of SP flooding to gain insights into its effectiveness and mechanisms."
           link='https://github.com/Daripa-Research-Group/Surfactant-Polymer-Flooding-Modeling'
         />
+
+        <SocialIcons />
     </div>
   );
 }
