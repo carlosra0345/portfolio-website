@@ -8,7 +8,6 @@ import ResponsiveAppBar from './components/ResponsiveAppBar';
 import SectionHeader from './components/SectionHeader';
 import mastercard from './assets/mastercard.png'
 import tamu from './assets/tamu.png'
-import waves from './assets/waves.png'
 import tamuSquare from './assets/tamu-square.png'
 import securochat from './assets/securochat.png'
 import Dropdown from './components/Dropdown';
@@ -88,17 +87,6 @@ function App() {
           tileTitle="Model of SP Flooding"
           tileContent="Surfactant-Polymer (SP) flooding is an enhanced oil recovery (EOR) technique that injects an aqueous phase with polymers and surfactants into oil reservoirs to optimize extraction. This project focuses on modeling the complex simulations of SP flooding to gain insights into its effectiveness and mechanisms."
           link='https://github.com/Daripa-Research-Group/Surfactant-Polymer-Flooding-Modeling'
-        />
-
-
-        <img
-          src={waves}
-          alt='footer waves'
-          style={{
-            width: '100%',    
-            height: 'auto',   
-            objectFit: 'cover'
-          }}
         />
     </div>
   );
