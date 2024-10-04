@@ -1,22 +1,22 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import portrait from "../assets/portrait.png";
 import colors from '../colors';
 
 const MainAboutMe = () => {
   return (
     <div id="about">
-      <Box 
-        display="flex" 
-        flexDirection={{ xs: 'column', sm: 'row' }} 
-        alignItems="center" 
+      <Box
+        display="flex"
+        flexDirection={{ xs: 'column', sm: 'row' }}
+        alignItems="center"
         justifyContent="center"
         sx={{ gap: { xs: 3, sm: 3, md: 6, lg: 10 } }}
       >
-        <Box 
-          flexShrink={0} 
-          display="flex" 
-          justifyContent="center" 
+        <Box
+          flexShrink={0}
+          display="flex"
+          justifyContent="center"
         >
           <img
             src={portrait}
@@ -24,73 +24,66 @@ const MainAboutMe = () => {
             style={{ maxWidth: '250px', height: 'auto' }}
           />
         </Box>
-        <Box 
-          sx={{ 
-            color: colors.textPrimary, 
+        <Box
+          sx={{
+            color: colors.textPrimary,
             px: { xs: 2, sm: 0 },
-            ml: { xs: 3 }, 
-            width: { lg: "40%" },
+            width: { lg: "50%" },
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center' 
-          }} 
+            alignItems: { xs: 'flex-start', sm: 'flex-start' }, 
+          }}
         >
-            <Box>
-          <Typography variant="body1" className="main-text-style" paragraph sx={{ textAlign: 'left' }}>
-            I am an undergraduate Computer Science Student at{" "}
-            <Link
-              rel="noopener"
-              target="_blank"
-              href="https://www.tamu.edu/index.html"
+          <Box>
+            <Typography
+              variant="h5"
               sx={{ 
-                color: colors.textSecondary, 
-                textDecoration: 'none', 
-                '&:hover': { 
-                  textDecoration: 'underline', 
-                  color: colors.hoverColor 
-                }
+                textAlign: { xs: 'left', sm: 'left' },
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem', 
+                fontWeight: 400 
               }}
             >
-              Texas A&M University
-            </Link>
-            .
-          </Typography>
-          <Typography variant="body1" className="main-text-style" paragraph sx={{ textAlign: 'left' }}>
-            Currently, I'm interning as a{" "}
-            <Link
-              rel="noopener"
-              target="_blank"
-              href="https://www.mastercard.us/en-us/business/issuers/grow-your-business/open-banking-solutions.html"
+              🎓 CS Undergrad & Researcher
+            </Typography>
+
+            <Typography
+              variant="h5"
               sx={{ 
-                color: colors.textSecondary, 
-                textDecoration: 'none', 
-                '&:hover': { 
-                  textDecoration: 'underline', 
-                  color: colors.hoverColor 
-                }
+                textAlign: { xs: 'left', sm: 'left' }, 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem', 
+                fontWeight: 400 
               }}
             >
-              Software Engineer within Mastercard's Platform Engineering team
-            </Link>
-            . Additionally, I am actively involved in{" "}
-            <Link
-              rel="noopener"
-              target="_blank"
-              href="https://www.math.tamu.edu/directory/formalpg.php?user=daripa"
+              💻 SWE Intern
+            </Typography>
+
+            <Typography
+              variant="h5"
               sx={{ 
-                color: colors.textSecondary, 
-                textDecoration: 'none', 
-                '&:hover': { 
-                  textDecoration: 'underline', 
-                  color: colors.hoverColor 
-                }
+                textAlign: { xs: 'left', sm: 'left' }, 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem', 
+                fontWeight: 400 
               }}
             >
-              undergraduate research
-            </Link>
-            , specifically focusing on modeling the effects of surfactant on
-            polymer flooding in enhanced oil recovery.
-          </Typography>
+              🌍 Exchange Student
+            </Typography>
+
+            <Typography 
+              variant="body1" 
+              paragraph 
+              sx={{ 
+                textAlign: 'left',
+                marginTop: 3
+              }}
+            >
+              Currently, I'm interning as a Software Engineer within Mastercard's Platform Engineering team. Additionally, I am actively involved in undergraduate research, specifically focusing on modeling the effects of surfactant on polymer flooding in enhanced oil recovery.
+            </Typography>
           </Box>
         </Box>
       </Box>
