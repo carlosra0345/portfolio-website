@@ -12,11 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import colors from '../colors';
 
-/**
- * Renders nav bar
- * @param {Object} props - object containing prop arguments
- * @argument {Array<Object>} items - list containing header items
- */
 function ResponsiveAppBar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -28,11 +23,22 @@ function ResponsiveAppBar(props) {
     setAnchorElNav(null);
   };
 
+  const handleScrollToSection = (ref) => {
+    const element = document.querySelector(ref);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    handleCloseNavMenu(); 
+  };
+
+  const handleExternalLink = (url) => {
+    window.open(url, '_blank'); 
+  };
+
   return (
-    <AppBar position="static" sx={{backgroundColor: colors.primary, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'}}>
+    <AppBar position="sticky" sx={{ backgroundColor: colors.primary, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo aligned to the left */}
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <AdbIcon sx={{ mr: 1 }} />
             <Typography
@@ -52,36 +58,28 @@ function ResponsiveAppBar(props) {
             </Typography>
           </Box>
 
-          {/* Pages aligned to the right */}
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {props.items.map((page) => (
-              <a
-                href={page.ref}
-                target={page.name === 'Resume' ? '_blank' : '_self'}
-                rel={page.name === 'Resume' ? 'noopener noreferrer' : undefined}
-                style={{ textDecoration: 'none' }} // Prevent the default link underline
+              <Button
+                key={page.name}
+                onClick={() => page.type === 'resume' ? handleExternalLink(page.ref) : handleScrollToSection(page.ref)}
+                sx={{
+                  my: 2,
+                  color: colors.textPrimary,
+                  backgroundColor: page.type === 'resume' ? colors.buttonPrimary : colors.primary,
+                  '&:hover': {
+                    color: page.type === 'resume' ? colors.textPrimary : colors.buttonPrimary,
+                    textDecoration: 'underline',
+                    textDecorationColor: page.type === 'resume' ? colors.buttonHover : colors.buttonPrimary,
+                  },
+                  display: 'block',
+                }}
               >
-                <Button
-                  key={page.name}
-                  onClick={handleCloseNavMenu} // Optionally keep this to handle any menu closing
-                  sx={{
-                    my: 2,
-                    color: colors.textPrimary,
-                    '&:hover': {
-                      color: colors.buttonPrimary,
-                      textDecoration: 'underline',
-                      textDecorationColor: colors.buttonPrimary
-                    },
-                    display: 'block'
-                  }}
-                >
-                  {page.name}
-                </Button>
-              </a>
+                {page.name}
+              </Button>
             ))}
           </Box>
 
-          {/* Menu for smaller screens */}
           <Box sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1, justifyContent: 'flex-end' }}>
             <IconButton
               size="large"
@@ -110,11 +108,9 @@ function ResponsiveAppBar(props) {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {props.items.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.name} onClick={() => page.type === 'resume' ? handleExternalLink(page.ref) : handleScrollToSection(page.ref)}>
                   <Typography sx={{ textAlign: 'center' }}>
-                    <a href={page.ref} target={page.name === 'Resume' ? '_blank' : '_self'} rel={page.name === 'Resume' ? 'noopener noreferrer' : undefined} style={{ color: 'inherit', textDecoration: 'none' }}>
-                      {page.name}
-                    </a>
+                    {page.name}
                   </Typography>
                 </MenuItem>
               ))}
@@ -125,4 +121,5 @@ function ResponsiveAppBar(props) {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;
